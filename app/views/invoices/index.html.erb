@@ -17,8 +17,7 @@
       <tr>
         <td><%= invoice.number %></td>
         <td><%= invoice.date %></td>
-        <td><%= invoice.supplier.try(:name) %></td>
-
+        <td><%= (link_to invoice.supplier.name, supplier_path(invoice)) if invoice.supplier.try(:name) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_invoice_path(invoice), :class => 'btn btn-default btn-xs' %>

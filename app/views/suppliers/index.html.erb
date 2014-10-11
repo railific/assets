@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
@@ -21,8 +20,7 @@
   <tbody>
     <% @suppliers.each do |supplier| %>
       <tr>
-        <td><%= link_to supplier.id, supplier_path(supplier) %></td>
-        <td><%= supplier.name %></td>
+        <td><%= link_to supplier.name, supplier_path(supplier) %></td>
         <td><%= supplier.phone %></td>
         <td><%= supplier.email %></td>
         <td><%= supplier.website %></td>
