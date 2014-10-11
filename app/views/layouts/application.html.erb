@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assets</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <![endif]-->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= bootstrap_flash %>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+      <div class="navbar-header">
+	    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-nav">
+		  <a>Menu</a>
+	    </button>
+	  </div>
+	  <a class="navbar-brand">Asset Register</a>
+      <div class="collapse navbar-collapse" id="collapse-nav">  
+        <ul class="nav navbar-nav"> 
+          <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>        
+          <li class="<%= is_active?(items_path) %>"><%= link_to "Items", items_path %></li>
+          <li class="<%= is_active?(users_path) %>"><%= link_to "Users", users_path %></li>
+          <li class="<%= is_active?(stores_path) %>"><%= link_to "Stores", stores_path %></li>
+          <li class="<%= is_active?(suppliers_path) %>"><%= link_to "Suppliers", suppliers_path %></li>
+          <li class="<%= is_active?(invoices_path) %>"><%= link_to "Invoices", invoices_path %></li>
+          <li class="<%= is_active?(categories_path) %>"><%= link_to "Categories", categories_path %></li>
+          <li class="<%= is_active?(locations_path) %>"><%= link_to "Locations", locations_path %></li>
+          <li class="dropdown">
+
+            <a class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+      	    <ul class="dropdown-menu" role="menu">
+
+      		  <p>
+      	        Track Assets and Stuff.</br>
+      	        See who didn't return the stuff</br> 
+      	        when they resigned.</br>
+      	        Don't like this DB?</br>
+			    Your welcome to fork it.
+      	  	  </p>
+      	    </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>                  <!-- end of NavBar -->
+  <div class="container-fluid">
+  <%= yield %>
+  </div>
+
+</body>
+</html>

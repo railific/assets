@@ -1,0 +1,51 @@
+<%- model_class = Item -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @item.user.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:store_id) %>:</strong></dt>
+  <dd><%= @item.user.try(:description) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:allocation_date) %>:</strong></dt>
+  <dd><%= @item.allocation_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>
+  <dd><%= @item.label %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:manufacturer) %>:</strong></dt>
+  <dd><%= @item.manufacturer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:model) %>:</strong></dt>
+  <dd><%= @item.model %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dd><%= @item.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:serial) %>:</strong></dt>
+  <dd><%= @item.serial %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:purchased) %>:</strong></dt>
+  <dd><%= @item.purchased %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:category_id) %>:</strong></dt>
+  <dd><%= @item.category.try(:description) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:invoice_id) %>:</strong></dt>
+  <dd><%= @item.invoice.try(:number) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:purchase_order_id) %>:</strong></dt>
+  <dd><%= @item.purchase_order.try(:number) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:warranty) %>:</strong></dt>
+  <dd><%= @item.warranty %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @item.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:supplier_id) %>:</strong></dt>
+  <dd><%= @item.supplier.try(:name) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:disposed) %>:</strong></dt>
+  <dd><%= @item.disposed %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
+  <dd><%= @item.comment %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              items_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_item_path(@item), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              item_path(@item),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

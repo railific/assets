@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  allocated: false
+  allocation_date: 2014-10-11
+  label: MyString
+  manufacturer: MyString
+  model: MyString
+  description: MyText
+  serial: MyString
+  purchased: 2014-10-11
+  category_id: 1
+  invoice_id: 1
+  purchase_order_id: 1
+  warranty: 2014-10-11
+  price: 9.99
+  supplier_id: 1
+  disposed: 2014-10-11
+  comment: MyText
+
+two:
+  allocated: false
+  allocation_date: 2014-10-11
+  label: MyString
+  manufacturer: MyString
+  model: MyString
+  description: MyText
+  serial: MyString
+  purchased: 2014-10-11
+  category_id: 1
+  invoice_id: 1
+  purchase_order_id: 1
+  warranty: 2014-10-11
+  price: 9.99
+  supplier_id: 1
+  disposed: 2014-10-11
+  comment: MyText

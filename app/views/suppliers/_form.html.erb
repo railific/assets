@@ -1,0 +1,108 @@
+<%= form_for @supplier, :html => { :class => "form-horizontal supplier" } do |f| %>
+
+    <% if @supplier.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @supplier.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :phone, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :phone, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:phone]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:email]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :website, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :website, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:website]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :support, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :support, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:support]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :street1, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :street1, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:street1]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :street2, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :street2, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:street2]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :town, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :town, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:town]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :state, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :state, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:state]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :postcode, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :postcode, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:postcode]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :country, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :country, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:country]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :comment, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comment, :class => 'form-control' %>
+    </div>
+    <%= error_span(@supplier[:comment]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            suppliers_path, :class => 'btn btn-default' %>
+
+<% end %>

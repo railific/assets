@@ -1,0 +1,143 @@
+<%= form_for @item, :html => { :class => "form-horizontal item" } do |f| %>
+
+    <% if @item.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @item.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :user_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :user_id, User.all.map { |t| [t.name, t.id]}, {:class => 'form-control', include_blank: ""} %>
+    </div>
+    <%= error_span(@item[:allocated]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :store_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :store_id, Store.all.map { |t| [t.description, t.id]}, {:class => 'form-control', include_blank: ""} %>
+    </div>
+    <%= error_span(@item[:allocated]) %>
+  </div>  
+  <div class="control-group">
+    <%= f.label :allocation_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :allocation_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:allocation_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :label, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :label, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:label]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :manufacturer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :manufacturer, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:manufacturer]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :model, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :model, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:model]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :serial, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :serial, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:serial]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :purchased, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :purchased, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:purchased]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :category_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :category_id, Category.all.map { |t| [t.description, t.id]}, {:class => 'form-control'} %>
+    </div>
+    <%= error_span(@item[:category_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :invoice_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :invoice_id, Invoice.all.map { |t| [t.number, t.id]}, {:class => 'form-control', include_blank: "unknown"} %>
+    </div>
+    <%= error_span(@item[:invoice_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :purchase_order_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :purchase_order_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:purchase_order_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :warranty, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :warranty, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:warranty]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :price, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:price]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :supplier_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :supplier_id, Supplier.all.map { |t| [t.name, t.id]}, {:class => 'form-control', include_blank: "unknown"} %>
+    </div>
+    <%= error_span(@item[:supplier_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :disposed, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :disposed, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:disposed]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :comment, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :comment, :class => 'form-control' %>
+    </div>
+    <%= error_span(@item[:comment]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            items_path, :class => 'btn btn-default' %>
+
+<% end %>
