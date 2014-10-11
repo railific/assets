@@ -5,15 +5,14 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:store_id) %></th>
-      <th><%= model_class.human_attribute_name(:allocation_date) %></th>
       <th><%= model_class.human_attribute_name(:label) %></th>
       <th><%= model_class.human_attribute_name(:manufacturer) %></th>
       <th><%= model_class.human_attribute_name(:model) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:serial) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:store_id) %></th>
+      <th><%= model_class.human_attribute_name(:allocation_date) %></th>
       <th><%= model_class.human_attribute_name(:purchased) %></th>
       <th><%= model_class.human_attribute_name(:category_id) %></th>
 
@@ -27,23 +26,24 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= link_to item.id, item_path(item) %></td>
-        <td><%= item.user.try(:name) %></td>
-        <td><%= item.store.try(:description) %></td>
-        <td><%= item.allocation_date %></td>
         <td><%= item.label %></td>
         <td><%= item.manufacturer %></td>
         <td><%= item.model %></td>
         <td><%= item.description %></td>
         <td><%= item.serial %></td>
+        <td><%= (link_to item.user.name, user_path(item)) if item.user.try(:name) %></td>
+        <td><%= item.store.try(:description) %></td>
+        <td><%= item.allocation_date %></td>
         <td><%= item.purchased %></td>
         <td><%= item.category.try(:description) %></td>
 
-        <td><%= item.supplier.try(:name) %></td>
+        <td><%= (link_to item.supplier.name, supplier_path(item)) if item.supplier.try(:name) %></td>
         <td><%= item.disposed %></td>
         <td><%= item.comment %></td>
 
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      item_path(item), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_item_path(item), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
