@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @item.user.try(:name) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:store_id) %>:</strong></dt>
-  <dd><%= @item.user.try(:description) %></dd>
+  <dd><%= @item.store.try(:description) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:allocation_date) %>:</strong></dt>
   <dd><%= @item.allocation_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:label) %>:</strong></dt>

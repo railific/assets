@@ -5,7 +5,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:supplier_id) %></th>
@@ -16,10 +15,9 @@
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= link_to invoice.id, invoice_path(invoice) %></td>
         <td><%= invoice.number %></td>
         <td><%= invoice.date %></td>
-        <td><%= invoice.supplier_id %></td>
+        <td><%= invoice.supplier.try(:name) %></td>
 
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

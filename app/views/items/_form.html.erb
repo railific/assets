@@ -20,14 +20,14 @@
     <div class="controls">
       <%= f.select :user_id, User.all.map { |t| [t.name, t.id]}, {:class => 'form-control', include_blank: ""} %>
     </div>
-    <%= error_span(@item[:allocated]) %>
+    <%= error_span(@item[:user_id]) %>
   </div>
   <div class="control-group">
     <%= f.label :store_id, :class => 'control-label' %>
     <div class="controls">
       <%= f.select :store_id, Store.all.map { |t| [t.description, t.id]}, {:class => 'form-control', include_blank: ""} %>
     </div>
-    <%= error_span(@item[:allocated]) %>
+    <%= error_span(@item[:store_id]) %>
   </div>  
   <div class="control-group">
     <%= f.label :allocation_date, :class => 'control-label' %>

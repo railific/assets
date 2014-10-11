@@ -21,7 +21,7 @@
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.name %></td>
-        <td><%= user.location_id %></td>
+        <td><%= user.location.try(:name) %></td>
         <td><%= user.phone %></td>
         <td><%= user.mobile %></td>
         <td><%= user.email %></td>
