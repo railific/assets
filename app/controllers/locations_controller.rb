@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @location.country = "Australia"   # Set default country
   end
 
   # GET /locations/1/edit

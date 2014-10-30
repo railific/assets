@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.store_id = 1    # Set default store
   end
 
   # GET /items/1/edit

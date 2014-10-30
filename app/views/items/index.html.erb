@@ -26,11 +26,11 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.label %></td>
+        <td><%= link_to item.label, item_path(item) %></td>
         <td><%= item.manufacturer %></td>
         <td><%= item.model %></td>
         <td><%= item.description %></td>
-        <td><%= item.serial %></td>
+        <td><%= link_to item.serial, item_path(item) %></td>
         <td><%= (link_to item.user.name, user_path(item)) if item.user.try(:name) %></td>
         <td><%= item.store.try(:description) %></td>
         <td><%= item.allocation_date %></td>

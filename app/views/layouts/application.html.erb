@@ -20,26 +20,25 @@
 	  </div>
 	  <a class="navbar-brand">Asset Register</a>
       <div class="collapse navbar-collapse" id="collapse-nav">  
-        <ul class="nav navbar-nav"> 
-          <li class="<%= is_active?(root_path) %>"><%= link_to "Home", root_path %></li>        
+        <ul class="nav navbar-nav">         
           <li class="<%= is_active?(items_path) %>"><%= link_to "Items", items_path %></li>
+          <li class="<%= is_active?(invoices_path) %>"><%= link_to "Invoices", invoices_path %></li>
+          <li class="<%= is_active?(suppliers_path) %>"><%= link_to "Suppliers", suppliers_path %></li>
           <li class="<%= is_active?(users_path) %>"><%= link_to "Users", users_path %></li>
           <li class="<%= is_active?(stores_path) %>"><%= link_to "Stores", stores_path %></li>
-          <li class="<%= is_active?(suppliers_path) %>"><%= link_to "Suppliers", suppliers_path %></li>
-          <li class="<%= is_active?(invoices_path) %>"><%= link_to "Invoices", invoices_path %></li>
-          <li class="<%= is_active?(categories_path) %>"><%= link_to "Categories", categories_path %></li>
           <li class="<%= is_active?(locations_path) %>"><%= link_to "Locations", locations_path %></li>
+          <li class="<%= is_active?(categories_path) %>"><%= link_to "Categories", categories_path %></li>
           <li class="dropdown">
 
             <a class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
       	    <ul class="dropdown-menu" role="menu">
 
-      		  <p>
+      		  <p class="padside_10">
       	        Track Assets and Stuff.</br>
       	        See who didn't return the stuff</br> 
-      	        when they resigned.</br>
+      	        when they resigned.</br></br>
       	        Don't like this DB?</br>
-			    Your welcome to fork it.
+			          Your welcome to fork it.
       	  	  </p>
       	    </ul>
           </li>
